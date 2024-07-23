@@ -19,8 +19,8 @@
 - Laravel 9.x
 
 ### Clone the Repository
-**git clone https://github.com/fatma8720/shipment_journal.git**
-**cd shipment_journal**
+- **git clone https://github.com/fatma8720/shipment_journal.git**
+- **cd shipment_journal**
 
 ### Install Dependencies
 **composer install**
@@ -36,15 +36,16 @@ Open the .env file and configure your database settings:
 APP_URL: URL of your application.
 DB_CONNECTION: Database connection type (mysql or sqlite) as:
 #### MySQL configuration for production
-**DB_CONNECTION=mysql**
-**DB_HOST=127.0.0.1**
-**DB_PORT=3307**
-**DB_DATABASE=your_production_database**
-**DB_USERNAME=your_database_username**
-**DB_PASSWORD=your_database_password**
+
+- **DB_CONNECTION=mysql**
+- **DB_HOST=127.0.0.1**
+- **DB_PORT=3307**
+- **DB_DATABASE=your_production_database**
+- **DB_USERNAME=your_database_username**
+- **DB_PASSWORD=your_database_password**
 #### SQLite configuration for testing 
-**DB_CONNECTION=sqlite**
-**DB_DATABASE=/path/to/your/database.sqlite**
+- **DB_CONNECTION=sqlite**
+- **DB_DATABASE=/path/to/your/database.sqlite**
  
 
 ### Generate Application Key
