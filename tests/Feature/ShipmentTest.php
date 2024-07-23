@@ -31,7 +31,7 @@ class ShipmentTest extends TestCase
         $shipment = Shipment::create([
             'code' => 'SHIP002',
             'shipper' => 'Jane Doe',
-            'image' => 'C:\Users\ZAHRA\OneDrive - Assuit University\Documents\GitHub\shipment_journal\storage\app\public\images\8LoDbalRLHsbo9HJ61vBAKaUkrdDjBWQFqAFkamV.png',
+            'image' => UploadedFile::fake()->image('test.jpg'),
             'weight' => 30,
             'description' => 'Sample description',
             'status' => 'Pending'
