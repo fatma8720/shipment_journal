@@ -19,16 +19,16 @@
 - Laravel 9.x
 
 ### Clone the Repository
-git clone https://github.com/fatma8720/shipment_journal.git
-cd shipment_journal
+**git clone https://github.com/fatma8720/shipment_journal.git**
+**cd shipment_journal**
 
 ### Install Dependencies
-composer install
+**composer install**
 
 ### Environment Configuration
 
 Copy the example environment file and configure your settings:
-cp .env.example .env
+**cp .env.example .env**
 
 Open the .env file and configure your database settings:
 
@@ -36,28 +36,28 @@ Open the .env file and configure your database settings:
 APP_URL: URL of your application.
 DB_CONNECTION: Database connection type (mysql or sqlite) as:
 #### MySQL configuration for production
-DB_CONNECTION=mysql
-DB_HOST=127.0.0.1
-DB_PORT=3307
-DB_DATABASE=your_production_database
-DB_USERNAME=your_database_username
-DB_PASSWORD=your_database_password
+**DB_CONNECTION=mysql**
+**DB_HOST=127.0.0.1**
+**DB_PORT=3307**
+**DB_DATABASE=your_production_database**
+**DB_USERNAME=your_database_username**
+**DB_PASSWORD=your_database_password**
 #### SQLite configuration for testing 
-DB_CONNECTION=sqlite
-DB_DATABASE=/path/to/your/database.sqlite
+**DB_CONNECTION=sqlite**
+**DB_DATABASE=/path/to/your/database.sqlite**
  
 
 ### Generate Application Key
-php artisan key:generate
+**php artisan key:generate**
 
 ### Migrate Database
 Run migrations to set up your database schema:
-php artisan migrate
+**php artisan migrate**
 
 
 ### Run the Application
 Start the Laravel development server:
-php artisan serve
+**php artisan serve**
 The application will be available at http://localhost:8000.
 
 
