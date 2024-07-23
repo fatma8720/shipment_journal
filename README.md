@@ -43,8 +43,8 @@ DB_DATABASE=your_production_database
 DB_USERNAME=your_database_username
 DB_PASSWORD=your_database_password
 #### SQLite configuration for testing 
- DB_CONNECTION=sqlite
- DB_DATABASE=/path/to/your/database.sqlite
+DB_CONNECTION=sqlite
+DB_DATABASE=/path/to/your/database.sqlite
  
 
 ### Generate Application Key
