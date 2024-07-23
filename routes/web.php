@@ -10,5 +10,5 @@ Route::get('/', function () {
 });
 Route::resource('shipments', ShipmentController::class);
 Route::post('shipments/{shipment}/status', [ShipmentController::class, 'changeStatus'])->name('shipments.changeStatus');
-
 Route::resource('journals', JournalController::class)->only(['index']);
+
