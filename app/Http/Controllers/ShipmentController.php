@@ -3,11 +3,20 @@
 namespace App\Http\Controllers;
 
 use App\Models\Shipment;
-use App\Models\Journal;
+use App\Http\Requests\CreateShipmentRequest;
+use App\Http\Requests\updateShipmentRequest;
 use Illuminate\Http\Request;
+use App\Http\Services\ShipmentService;
 
 class ShipmentController extends Controller
 {
+    public $shipmentService;
+
+    public function __construct(ShipmentService $shipmentService)
+    {
+        $this->shipmentService = $shipmentService;
+    }
+
     public function index()
     {
         $shipments = Shipment::all();
@@ -19,9 +28,11 @@ class ShipmentController extends Controller
         return view('shipments.create');
     }
 
-    public function store(Request $request)
+    public function store(CreateShipmentRequest $request)
     {
-        $shipment = Shipment::create($request->all());
+        $shipmentData = $request->validated();
+        $this->shipmentService->store($shipmentData);
+
         return redirect()->route('shipments.index');
     }
 
@@ -30,23 +41,21 @@ class ShipmentController extends Controller
         return view('shipments.edit', compact('shipment'));
     }
 
-    public function update(Request $request, Shipment $shipment)
+    public function update(UpdateShipmentRequest $request, Shipment $shipment)
     {
-        $shipment->update($request->all());
+        $shipmentData = $request->validated();
+        $this->shipmentService->update($shipment, $shipmentData);
+
         return redirect()->route('shipments.index');
     }
 
     public function changeStatus(Request $request, Shipment $shipment)
     {
-        $shipment->status = $request->status;
-        $shipment->save();
+        $request->validate([
+            'status' => 'required|in:Pending,Progress,Done',
+        ]);
 
-        if ($shipment->status == 'Done') {
-            $price = $shipment->price;
-            Journal::create(['shipment_id' => $shipment->id, 'amount' => $price, 'type' => 'Debit Cash']);
-            Journal::create(['shipment_id' => $shipment->id, 'amount' => $price * 0.2, 'type' => 'Credit Revenue']);
-            Journal::create(['shipment_id' => $shipment->id, 'amount' => $price * 0.8, 'type' => 'Credit Payable']);
-        }
+        $this->shipmentService->changeStatus($shipment, $request->status);
 
         return redirect()->route('shipments.index');
     }
