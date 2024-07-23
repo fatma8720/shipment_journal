@@ -23,12 +23,12 @@
 - **cd shipment_journal**
 
 ### Install Dependencies
-**composer install**
+- **composer install**
 
 ### Environment Configuration
 
 Copy the example environment file and configure your settings:
-**cp .env.example .env**
+- **cp .env.example .env**
 
 Open the .env file and configure your database settings:
 
@@ -49,16 +49,16 @@ DB_CONNECTION: Database connection type (mysql or sqlite) as:
  
 
 ### Generate Application Key
-**php artisan key:generate**
+- **php artisan key:generate**
 
 ### Migrate Database
 Run migrations to set up your database schema:
-**php artisan migrate**
+- **php artisan migrate**
 
 
 ### Run the Application
 Start the Laravel development server:
-**php artisan serve**
+- **php artisan serve**
 The application will be available at http://localhost:8000.
 
 
